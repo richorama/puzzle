@@ -2,8 +2,21 @@
 <html lang="en">
     <head>
         <title>Level 4</title>
+        <script>
+
+// g`q`g0(RqdM)cohg
+        
+function decode(text) {
+    var bound = 0x10000;
+    return String.fromCharCode.apply(null,
+        text.split('').map(function(v) {
+            return (v.charCodeAt() + 5 + bound) % bound;
+        })
+    );
+};
+        </script>
     </head>
     <body>
-        <h1>Level 4 - WIP</h1>
+        <h1>Level 4</h1>
     </body>
 </html>
