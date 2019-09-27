@@ -1,12 +1,50 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <title>Congratulations!</title>
-        <style>body { background-color: white; }</style>
-    </head>
-    <body>
-        <h1>Congratulations!</h1>
-        <p>You've completed all of the levels!  Nicely done.</p>
-        <p>If you'd like to add a new level, please submit a Pull Request to <a href="https://github.com/richorama/puzzle">https://github.com/richorama/puzzle</a></p>
-    </body>
+<head>
+    <title>Level 10</title>
+    <style>body {
+        background-color: white;
+    }</style>
+    <script>
+      function check() {
+        let values = [];
+        let i;
+        for (i = 0; i < 16; i++) {
+          values.push(document.getElementById(String(i)).checked)
+        }
+        if (values[0] && (values[1] || false) && (values[3] && !values[10]) && !(values[0] && !values[4]) && !values[5] && !values[6] && values[7] && values[8] && values[2] && (values[10] || values[9]) && !(values[11] || values[12] || values[13] || values[14]) && values[15]) {
+          let nextLevelInt = 0;
+          for (i = 0; i < 16; i++) {
+            nextLevelInt += (2 ** i) * values[i];
+          }
+          let l = document.getElementById('theLink');
+          l.href = `./level11-${nextLevelInt.toString(16)}.html`;
+          l.textContent = 'Level 11!';
+        } else {
+          alert('Failure!')
+        }
+      }
+    </script>
+</head>
+<body>
+<h1>Level 10</h1>
+<input type="checkbox" id="0"><label for="0">0</label><br>
+<input type="checkbox" id="1"><label for="1">1</label><br>
+<input type="checkbox" id="2"><label for="2">2</label><br>
+<input type="checkbox" id="3"><label for="3">3</label><br>
+<input type="checkbox" id="4"><label for="4">4</label><br>
+<input type="checkbox" id="5"><label for="5">5</label><br>
+<input type="checkbox" id="6"><label for="6">6</label><br>
+<input type="checkbox" id="7"><label for="7">7</label><br>
+<input type="checkbox" id="8"><label for="8">8</label><br>
+<input type="checkbox" id="9"><label for="9">9</label><br>
+<input type="checkbox" id="10"><label for="10">10</label><br>
+<input type="checkbox" id="11"><label for="11">11</label><br>
+<input type="checkbox" id="12"><label for="12">12</label><br>
+<input type="checkbox" id="13"><label for="13">13</label><br>
+<input type="checkbox" id="14"><label for="14">14</label><br>
+<input type="checkbox" id="15"><label for="15">15</label><br>
+<button id="check" onclick="check()">Check</button>
+<a href="#" id="theLink">Level 10</a>
+</body>
 </html>
